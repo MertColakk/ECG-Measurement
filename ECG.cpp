@@ -5,7 +5,7 @@
 #include "ECG.hpp"
 
 //Constructor
-Patient::Patient(){
+Patient::Patient(std::string name,std::string surname):name(name),surname(surname){
     this->voltages.clear();
     this->times.clear();
     this->result=" ";
@@ -42,6 +42,7 @@ void Patient::readData(std::string fileName){
         this->voltages.push_back(std::stod(voltageString));
     }
 
+    std::cout<<"Patient's datas has been read."<<std::endl;
     dataFile.close();
 
 }
@@ -68,10 +69,11 @@ void Patient::analyzeData(){
 
     this->hearthRate = hearthRate;
 
+    std::cout<<"Patient's datas has been analyzed!"<<std::endl;
+
 }
 
 void Patient::findPatientResult(){
-
     if(this->hearthRate>100)
         this->result = "Tachycardia";
     else if(this->hearthRate>60)
@@ -79,7 +81,7 @@ void Patient::findPatientResult(){
     else
         this->result = "Bradycardia";
     
-        
+    std::cout<<"Patient's result has been found!"<<std::endl;;
 }
 void Patient::writeData(std::string writeFileName){
     std::ofstream outputFile(writeFileName);
@@ -89,6 +91,7 @@ void Patient::writeData(std::string writeFileName){
         return;
     }
 
-    outputFile<<"Patient Status: "<<this->result<<std::endl;
+    outputFile<<this->name<<" "<<this->surname<<"'s status: "<<this->result<<std::endl;
+    std::cout<<"Patient's result has been wrote correctly."<<std::endl;
 
 }
