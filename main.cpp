@@ -1,74 +1,35 @@
 #include <iostream>
 #include "ECG.hpp"
+#include "Utility.hpp"
 using namespace std;
 
 
 int main(){
-    //Variables
-        //For Patient Class
-    string name;
-    string dataFileName,outputFileName;
-
-        //For Manager Class
-    
-    //Creating manager object
-    Manager programManager("alldata2.txt","patient1.txt","patient2.txt","patient3.txt");
-    programManager.readAndWriteData(); //Splitting the dataset
-
-
-        //Patient operations 
     //Patient 1
-    cout<<"Enter patient's name and surname: ";
-    getline(cin,name);
+    Patient patient1;
 
-    Patient patient1(name);
+    patient1.analyzeData("Person1.txt");
 
-    cout<<"Enter the data file name for read: ";
-    getline(cin,dataFileName);
-
-    patient1.readData(dataFileName);
-    patient1.analyzeData();
-    patient1.findPatientResult();
-
-    cout<<"Analyze has been finished correctly!\n"<<"Please enter a file name for writing the patient results: ";
-    getline(cin,outputFileName);
-    patient1.writeData(outputFileName);
+    patient1.analyzeAndWriteForAll();
 
     //----------------------------------------------------------------------------------------------------------------
+
     //Patient 2
-    cout<<"Enter patient's name and surname: ";
-    getline(cin,name);
+    Patient patient2;
 
-    Patient patient2(name);
+    patient2.analyzeData("Person2.txt");
 
-    cout<<"Enter the data file name for read: ";
-    getline(cin,dataFileName);
+    patient2.analyzeAndWriteForAll();
 
-    patient2.readData(dataFileName);
-    patient2.analyzeData();
-    patient2.findPatientResult();
-
-    cout<<"Analyze has been finished correctly!\n"<<"Please enter a file name for writing the patient results: ";
-    getline(cin,outputFileName);
-    patient2.writeData(outputFileName);
-
-    //----------------------------------------------------------------------------------------------------------------
-    //Patient 3
-    cout<<"Enter patient's name and surname: ";
-    getline(cin,name);
-
-    Patient patient3(name);
-
-    cout<<"Enter the data file name for read: ";
-    getline(cin,dataFileName);
-
-    patient3.readData(dataFileName);
-    patient3.analyzeData();
-    patient3.findPatientResult();
-
-    cout<<"Analyze has been finished correctly!\n"<<"Please enter a file name for writing the patient results: ";
-    getline(cin,outputFileName);
-    patient3.writeData(outputFileName);
+    writeForAll();
 
     return 0;
 }
+/*
+****************************                                                   ****************************
+
+                                Written By Mustafa Mert ÇOLAK and Ege ÇELİK    
+                                                 22298506          22295230
+
+****************************                                                   ****************************
+*/
